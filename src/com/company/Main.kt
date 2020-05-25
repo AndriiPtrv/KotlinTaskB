@@ -58,4 +58,17 @@ fun main(args: Array<String>) {
     for (shop in listShop) {
         if (shop.hasName(nameShop3)) shop.minMaxPhones(min, max)
     }
+
+    println("---------------------------------------------")
+
+    val map: MutableMap<String, Phone> = mutableMapOf()
+    for (shop in listShop) {
+        for (phone in shop.product) {
+            map.put(phone.brand, phone)
+        }
+    }
+    for((key, product) in map){
+        if (product.discount != null) println("${product.brand} ${product.model} цена: ${product.price} скидка: ${product.discount}")
+        else println("${product.brand} ${product.model} цена: ${product.price}")
+    }
 }
